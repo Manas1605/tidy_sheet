@@ -1,0 +1,5 @@
+full name,email_address,phone,address,notes
+john SMITH,JOHN.SMITH@example.com,555-123-4567,"123 Main St, Springfield, IL 62704",  VIP lead
+mary o'brien,mary.obrien(at)example.com,(555) 987-6543,"45 Oak Ave, Chicago, IL 60614",Follow up next week
+JOHN smith,john.smith@example.com,5551234567,"123 Main St, Springfield, IL 62704",duplicate of row 1
+  bob jones ,bob@jones,not-a-phone,"9 Elm Rd, Austin, TX 73301",

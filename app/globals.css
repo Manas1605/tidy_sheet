@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/*
+  Design language: "the working sheet."
+  This tool's entire job happens inside a grid of cells, so the grid
+  itself is the visual system rather than a decoration layered on top.
+  Data is always shown in a true monospace so cell values read like
+  data, not prose. The signal color (moss green) marks what's been
+  cleaned; the flag color (rust) marks what needs attention — the same
+  two colors the product itself uses in the before/after view.
+*/
+
+:root {
+  --paper: #faf9f5;
+  --paper-raised: #ffffff;
+  --ink: #1b1f1c;
+  --ink-muted: #61675f;
+  --line: #dedad0;
+  --line-strong: #c7c2b4;
+  --moss: #2f6b4f;
+  --moss-soft: #e3ece5;
+  --rust: #b5432f;
+  --rust-soft: #f6e6e1;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-moss: var(--moss);
+  --color-moss-soft: var(--moss-soft);
+  --color-rust: var(--rust);
+  --color-rust-soft: var(--rust-soft);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-data: var(--font-plex-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Faint fixed grid wash across the page background, reinforcing the
+   spreadsheet metaphor without competing with content. */
+.grid-wash {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%);
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+  opacity: 0.5;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-data {
+  font-family: var(--font-data), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Visible keyboard focus, kept consistent across custom controls. */
+:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
